@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script defer src="./lib/mono_lib.js"></script>
+    
+    <script defer src="./src/data.js"></script>
+    <script defer src="./src/ink_mat.js"></script>
+    <script defer src="./src/pen.js"></script>
+    <script defer src="./src/tool_tip.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>Pen Factori Remaster 2021</title>
+</head>
+<body>
+    <div #top-bar>
+        <h2 #cash-txt style="padding: 0.5rem 0.7rem;" :w>Cash: {cash}</h2>
+        <!-- <h2 #cash-txt style="padding: 0.5rem 0.7rem;" :w>{cash, tool_tip => Cash: $0 -- $1}</h2> -->
+    </div>
+    <div .sect #sect1> 
+        <h2 .sect-title :w>Ink: {ink}</h2>
+        <div .two-btns>
+            <div .btn onclick="get_ink()"> <h3 :w>+{ink_pc} ink</h3></div>
+            <div .btn onclick="upgr_ink_pc()"> <h3 :w>+0.2 per click: -${ink_uc} </h3> </div>
+        </div>
+        <div .btn onclick="upgr_ink_ps()"> <h3 :w>+0.2 per second: -${ink_ic}</h3> <h3 .info :w>(+{ink_ps}/sec)</h3> </div>
+    </div>
+    <div .sect #sect2> 
+        <h2 .sect-title :w>Material: {mat}</h2>
+        <div .two-btns>
+            <div .btn onclick="get_mat()"> <h3 :w>+{mat_pc} mat</h3></div>
+            <div .btn onclick="upgr_mat_pc()"> <h3 :w>+0.2 per click: -${mat_uc} </h3> </div>
+        </div>
+        <div .btn onclick="upgr_mat_ps()"> <h3 :w>+0.2 per second: -${mat_ic}</h3> <h3 .info :w>(+{mat_ps}/sec)</h3> </div>
+    </div>
+    <div .sect #sect3> 
+        <h2 .sect-title :w>Pens: {pens}</h2>
+        <div .btn #craft-pen onclick="craft_pen()" :w>{ink_pp, mat_pp => Craft Pen: $0 ink & $1 mat}</div>
+        <div .btn #idle-pen onclick="upgr_idle_craft()"  onhover="! set_tip('Craft pens automatically when you can.', 'pen') | hide_tip()"> <h3 :w>+1 per second: -${pen_ic}</h3> <h3 .info :w>({pen_ps}/sec)</h3> </div>
+        <div .btn onclick="upgr_marketing()" onhover="! set_tip('Increases your cash per pen by a percentage', 'pen') | hide_tip()"><h3 :w>Better Marketing: ${pen_mc}</h3> <h3 .info :w>(+{pen_mp}%)</h3> </div>
+
+        <div .btn #sell-pen onclick="sell_pens()"> <h3 :w>Sell Pens: {cash_pp}</h3> </div>
+    </div>
+    <div #tip-box><h3 #tip-text :w>{tool_tip}</h3></div>
+    <!-- {div #title}[
+        {h1 .center|red}[ What's up kids ]
+    ] -->
+</div>
+</body>
+</html>
