@@ -8,9 +8,9 @@ D.settings = {
     mat_pc: {display(v){ return format_num(Math.round(v*10)/10); }, round: 2},
     mat_ps: {display(v){ return format_num(Math.round(v*10)/10); }, round: 2},
 
-    mat_uc: {display(v){
-        console.log(`Mat upgrade cost: ${v}`); return v;
-    }},
+    // mat_uc: {display(v){
+    //     console.log(`Mat upgrade cost: ${v}`); return v;
+    // }},
 
     cash_pp: {display(v){ D.pen_info = v; return `+$${v*D.pens*(1+D.pen_mp/100)}`; }},
     pen_info: {display(v){ return `(${v} * ${D.pens}) * ${D.pen_mp}%`; }},
@@ -22,7 +22,7 @@ D.settings = {
 D.tool_tip = "Tool tip's be like";
 
 //* Cash
-D.cash = 100; //-! Debug
+D.cash = 0; 
 D.cash_pp = 1;
 //? critical sale?
 
