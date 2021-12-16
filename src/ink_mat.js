@@ -4,12 +4,18 @@ const get_ink = ()=> D.ink += D.ink_pc;
 const upgr_ink_pc = ()=> {
     if (D.cash < D.ink_uc) return;
     D.cash -= D.ink_uc;
-    D.ink_pc += 0.2;
+    D.ink_pc += D.ink_pu;
+    D.ink_b_till--;
+    if (D.ink_b_till <= 0)
+        upgrade_provider("ink");
 };
 const upgr_mat_pc = ()=> {
     if (D.cash < D.mat_uc) return;
     D.cash -= D.mat_uc;
-    D.mat_pc += 0.2;
+    D.mat_pc += D.mat_pu;
+    D.mat_b_till--;
+    if (D.mat_b_till <= 0)
+        upgrade_provider("mat");
 };
 
 const upgr_ink_ps = ()=> {

@@ -5,33 +5,42 @@ body {
 
     display: grid;
     grid-template-rows: max-content 1fr;
-    grid-template-areas: "t t t" "s1 s2 s3";
+    /* grid-template-areas: "t t t" "s1 s2 s3"; */
     overflow: hidden;
+    user-select: none;
+    gap: 0;
 
     background-color: #212121;
     color: white;
 }
+#sections {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 #top-bar {
-    grid-area: t;
-    border: 2px solid #666600;
+    border-bottom: 2px solid #666600;
 }
 .sect {
     position: relative;
-    width: calc(100vw / 3 - 4px - 2rem);
+    /* min-width: calc(100vw / 3 - 4px - 2rem); */
     padding: 1rem;
 }
 #sect1 {
-    border: 2px solid #9e0000;
+    /* border: 2px solid #9e0000; */
 }
 #sect2 {
-    border: 2px solid #008000;
+    /* border: 2px solid #008000; */
+    border-left: 2px solid #666600;
+    border-right: 2px solid #666600;
 }
 #sect3 {
-    border: 2px solid #686868;
+    /* border: 2px solid #686868; */
 }
-#sect1 .btn { border: 3px solid #9e0000; }
-#sect2 .btn { border: 3px solid #008000; }
-#sect3 .btn { border: 3px solid #686868; }
+#sect1 .btn { background-color: #9e0000; }
+#sect2 .btn { background-color: #008000; }
+#sect3 .btn { background-color: #686868; }
 .btn {
     height: max-content;
     border-radius: 2px;
@@ -70,15 +79,12 @@ body {
 }
 
 #sell-pen {
-    position: absolute;
-    bottom: 0;
-    width: calc(100% - 4rem - 6px);
-    padding: 2rem 1rem;
-    font-size: calc(0.5rem + 1vw);
+    margin-top: 2rem;
 }
 #sell-pen h3 {
-    width: auto;
+    /* width: auto; */
     text-align: center;
+    float: left;
 }
 .btn .t-cent { text-align: center; width: auto; }
 
@@ -87,10 +93,15 @@ body {
     left: 0;
     bottom: 0;
     padding: 1rem 1.3rem;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     transform: translateY(100%);
-    background-color: #212121;
-    width: max-content;
-    max-width: 30%;
+    background-color: #333333;
+    width: calc(33.33333vw - 2.6rem);
     /* transition-duration: 0.4s; */
+}
+
+.buss-info {
+    padding-top: 2rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
 }

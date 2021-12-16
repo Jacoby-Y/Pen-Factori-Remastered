@@ -3,16 +3,16 @@ const set_tip = (str, sect)=>{
     let color = "";
     let left = "0";
     if (sect == "ink") {
-        color = "red";
+        color = "maroon";
     } else if (sect == "mat") {
         color = "green";
         left = "33.3%";
     } else if (sect == "pen") {
-        color = "grey";
+        color = "#333333";
         left = "66.6%";
     }
     const st = tip_box.style;
-    st.borderColor = color;
+    st.backgroundColor = color;
     st.left = left;
     setTimeout(() => {
         st.transitionDuration = "0.3s";
@@ -22,6 +22,9 @@ const set_tip = (str, sect)=>{
 }
 const hide_tip = ()=>{
     // D.tool_tip = "";
+    const st = tip_box.style;
     tip_box.style.transform = "translateY(100%)";
-    st.transitionDuration = "0s";
+    setTimeout(() => {
+        st.transitionDuration = "0s";
+    }, 10);
 }
