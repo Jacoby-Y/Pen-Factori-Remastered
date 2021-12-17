@@ -12,7 +12,7 @@ D.settings = {
     //     console.log(`Mat upgrade cost: ${v}`); return v;
     // }},
 
-    cash_pp: {display(v){ D.pen_info = v; return `+$${v*D.pens*(1+D.pen_mp/100)}`; }},
+    cash_pp: {display(v){ D.pen_info = v; return `+$${format_num(v*D.pens*(1+D.pen_mp/100), 1)}`; }},
     pen_info: {display(v){ return `(${v} * ${D.pens}) * ${D.pen_mp}%`; }},
 
     mat_b_till: {display(v){ return (D.mat_b_max) ? "max" : v }},

@@ -14,13 +14,15 @@ const sell_pens = ()=>{
     D.cash_pp = D.cash_pp;
 };
 const upgr_idle_craft = ()=>{
-    if (D.cash < D.pen_ic) return;
+    if (Math.round(D.cash) < D.pen_ic) return;
     D.cash -= D.pen_ic;
+    if (D.cash < 0) D.cash = 0;
     D.pen_ps += 1;
 };
 const upgr_marketing = ()=>{
-    if (D.cash < D.pen_mc) return;
+    if (Math.round(D.cash) < D.pen_mc) return;
     D.cash -= D.pen_mc;
+    if (D.cash < 0) D.cash = 0;
     D.pen_mp += 1;
     D.cash_pp = D.cash_pp;
 }
@@ -41,9 +43,8 @@ setInterval(() => {
     if (D.pen_ps <= 0) return;
     const max = max_pen_craft();
     // console.log(`max: ${max}`);
-    if (D.pen_ps <= max) {
-        craft_pens(D.pen_ps);
-    } else {
-        craft_pens(max);
-    }
+    if (D.pen_ps <= max) craft_pens(D.pen_ps);
+    else craft_pens(max);
+    
+    D.cash_pp = D.cash_pp;
 }, 1000);
